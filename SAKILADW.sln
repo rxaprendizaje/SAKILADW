@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SAKILADW", "SAKILADW\SAKILADW.dtproj", "{F1CCCE9F-175E-4AFC-BDDA-49709DDB2DDB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts de Base de Datos", "Scripts de Base de Datos", "{6134E341-BA6D-4EC8-A403-F123044A7FAE}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Desktop\Esquema DW.sql = ..\..\..\Desktop\Esquema DW.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default

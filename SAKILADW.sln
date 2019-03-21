@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SAKILADW", "SAKILADW\SAKILADW.dtproj", "{F1CCCE9F-175E-4AFC-BDDA-49709DDB2DDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1CCCE9F-175E-4AFC-BDDA-49709DDB2DDB}.Development|Default.ActiveCfg = Development
+		{F1CCCE9F-175E-4AFC-BDDA-49709DDB2DDB}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03E481AE-826A-4D7E-9D9E-20C9DA5BDACF}
+	EndGlobalSection
+EndGlobal

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{AC6E9947-6ECC-4C23-A979-C38F55C0ACFF}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{42931289-C12A-47A7-A76E-C81339D16C35}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -399,6 +399,472 @@
                       refId="Package\ETLDimensiones\Cargar Dim Film.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\ETLDimensiones\Cargar Dim Film.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETLDimensiones\Destino de ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Destino de ADO NET"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DimCliente"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETLDimensiones\Destino de ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[clasedbii\DATAWAREHOUSE.SAKILADW]"
+                  connectionManagerRefId="Package.ConnectionManagers[clasedbii\DATAWAREHOUSE.SAKILADW]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[customer_id]"
+                      cachedDataType="i4"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[customer_id]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Direccion1Tienda]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Direccion1Tienda"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Direccion1Tienda]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Direccion1Tienda]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Direccion2Tienda]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Direccion2Tienda"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Direccion2Tienda]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Direccion2Tienda]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DistritoTienda]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="DistritoTienda"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[DistritoTienda]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[DistritoTienda]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[CiudadTienda]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CiudadTienda"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[CiudadTienda]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CiudadTienda]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[PaisTienda]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PaisTienda"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[PaisTienda]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[PaisTienda]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[CodigoPostalTienda]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CodigoPostalTienda"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[CodigoPostalTienda]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CodigoPostalTienda]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[TelefonoTienda]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="TelefonoTienda"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[TelefonoTienda]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[TelefonoTienda]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[PrimerNombre]"
+                      cachedDataType="wstr"
+                      cachedLength="45"
+                      cachedName="PrimerNombre"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[PrimerNombre]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[PrimerNombre]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Apellidos]"
+                      cachedDataType="wstr"
+                      cachedLength="45"
+                      cachedName="Apellidos"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Apellidos]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Apellidos]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Direccion2Cliente]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Direccion2Cliente"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Direccion2Cliente]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Direccion2Cliente]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DistritoCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="DistritoCliente"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[DistritoCliente]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[DistritoCliente]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[CiudadCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CiudadCliente"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[CiudadCliente]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CiudadCliente]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[PaisCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PaisCliente"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[PaisCliente]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[PaisCliente]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[CodigoPostalCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CodigoPostalCliente"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[CodigoPostalCliente]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CodigoPostalCliente]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[TelefonoCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="TelefonoCliente"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[TelefonoCliente]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[TelefonoCliente]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Direcccion1Cliente]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Direcccion1Cliente"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Direccion1Cliente]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Direcccion1Cliente]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[IDDimClientes]"
+                      dataType="numeric"
+                      name="IDDimClientes"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[customer_id]"
+                      dataType="i4"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Direccion1Tienda]"
+                      dataType="wstr"
+                      length="50"
+                      name="Direccion1Tienda" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Direccion2Tienda]"
+                      dataType="wstr"
+                      length="50"
+                      name="Direccion2Tienda" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[DistritoTienda]"
+                      dataType="wstr"
+                      length="20"
+                      name="DistritoTienda" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[CodigoPostalTienda]"
+                      dataType="wstr"
+                      length="10"
+                      name="CodigoPostalTienda" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[TelefonoTienda]"
+                      dataType="wstr"
+                      length="20"
+                      name="TelefonoTienda" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[CiudadTienda]"
+                      dataType="wstr"
+                      length="50"
+                      name="CiudadTienda" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[PaisTienda]"
+                      dataType="wstr"
+                      length="50"
+                      name="PaisTienda" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[PrimerNombre]"
+                      dataType="wstr"
+                      length="45"
+                      name="PrimerNombre" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Apellidos]"
+                      dataType="wstr"
+                      length="45"
+                      name="Apellidos" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Direccion1Cliente]"
+                      dataType="wstr"
+                      length="50"
+                      name="Direccion1Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Direccion2Cliente]"
+                      dataType="wstr"
+                      length="50"
+                      name="Direccion2Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[DistritoCliente]"
+                      dataType="wstr"
+                      length="20"
+                      name="DistritoCliente" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[CodigoPostalCliente]"
+                      dataType="wstr"
+                      length="10"
+                      name="CodigoPostalCliente" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[TelefonoCliente]"
+                      dataType="wstr"
+                      length="20"
+                      name="TelefonoCliente" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[CiudadCliente]"
+                      dataType="wstr"
+                      length="50"
+                      name="CiudadCliente" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[PaisCliente]"
+                      dataType="wstr"
+                      length="50"
+                      name="PaisCliente" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETLDimensiones\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETLDimensiones\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETLDimensiones\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETLDimensiones\Destino de ADO NET 1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Destino de ADO NET 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DimTienda"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETLDimensiones\Destino de ADO NET 1.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[clasedbii\DATAWAREHOUSE.SAKILADW]"
+                  connectionManagerRefId="Package.ConnectionManagers[clasedbii\DATAWAREHOUSE.SAKILADW]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].Columns[store_id]"
+                      cachedDataType="i4"
+                      cachedName="store_id"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[store_id]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[store_id]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].Columns[Direccion1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Direccion1"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Direccion1]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Direccion1]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].Columns[Direccion2]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Direccion2"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Direccion2]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Direccion2]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].Columns[Distrito]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Distrito"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Distrito]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Distrito]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].Columns[CodigoPostal]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CodigoPostal"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[CodigoPostal]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[CodigoPostal]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].Columns[Telefono]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Telefono"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Telefono]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Telefono]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].Columns[Ciudad]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Ciudad"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Ciudad]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Ciudad]" />
+                    <inputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].Columns[Pais]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Pais"
+                      externalMetadataColumnId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Pais]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Pais]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[IDDimTienda]"
+                      dataType="numeric"
+                      name="IDDimTienda"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[store_id]"
+                      dataType="i4"
+                      name="store_id" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Direccion1]"
+                      dataType="wstr"
+                      length="50"
+                      name="Direccion1" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Direccion2]"
+                      dataType="wstr"
+                      length="50"
+                      name="Direccion2" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Distrito]"
+                      dataType="wstr"
+                      length="20"
+                      name="Distrito" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[CodigoPostal]"
+                      dataType="wstr"
+                      length="10"
+                      name="CodigoPostal" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Telefono]"
+                      dataType="wstr"
+                      length="20"
+                      name="Telefono" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Ciudad]"
+                      dataType="wstr"
+                      length="50"
+                      name="Ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Pais]"
+                      dataType="wstr"
+                      length="50"
+                      name="Pais" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETLDimensiones\Destino de ADO NET 1.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETLDimensiones\Destino de ADO NET 1.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Destino de ADO NET 1.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETLDimensiones\Destino de ADO NET 1.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2186,6 +2652,733 @@
               </outputs>
             </component>
             <component
+              refId="Package\ETLDimensiones\Origen de ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen de ADO NET"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+customer.customer_id
+,dt.[address] as Direccion1Tienda
+,dt.address2 as Direccion2Tienda
+,dt.district as DistritoTienda
+,ct.city as CiudadTienda
+,pt.country as PaisTienda
+,dt.postal_code as CodigoPostalTienda
+,dt.phone as TelefonoTienda
+,customer.first_name as PrimerNombre
+,customer.last_name as Apellidos
+,dc.[address] as Direcccion1Cliente
+,dc.address2 as Direccion2Cliente
+,dc.district as DistritoCliente
+,city.city as CiudadCliente
+,country.country as PaisCliente
+,dc.postal_code as CodigoPostalCliente
+,dc.phone as TelefonoCliente
+from customer inner join 
+[address] dc on
+customer.address_id = dc.address_id
+inner join city on
+dc.city_id =  city.city_id
+inner join 
+country on city.country_id = country.country_id
+
+inner join store
+on store.store_id = customer.store_id
+inner join 
+[address] dt on
+store.address_id = dt.address_id
+inner join city ct on
+dt.city_id =  ct.city_id
+inner join 
+country pt on ct.country_id = pt.country_id
+;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETLDimensiones\Origen de ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[clasedbii\DATAWAREHOUSE.sakila]"
+                  connectionManagerRefId="Package.ConnectionManagers[clasedbii\DATAWAREHOUSE.sakila]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[customer_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[customer_id]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Direccion1Tienda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Direccion1Tienda]"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Direccion1Tienda]"
+                      name="Direccion1Tienda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Direccion2Tienda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Direccion2Tienda]"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Direccion2Tienda]"
+                      name="Direccion2Tienda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[DistritoTienda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[DistritoTienda]"
+                      length="20"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[DistritoTienda]"
+                      name="DistritoTienda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CiudadTienda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[CiudadTienda]"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CiudadTienda]"
+                      name="CiudadTienda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[PaisTienda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[PaisTienda]"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[PaisTienda]"
+                      name="PaisTienda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CodigoPostalTienda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[CodigoPostalTienda]"
+                      length="10"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CodigoPostalTienda]"
+                      name="CodigoPostalTienda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[TelefonoTienda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[TelefonoTienda]"
+                      length="20"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[TelefonoTienda]"
+                      name="TelefonoTienda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[PrimerNombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[PrimerNombre]"
+                      length="45"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[PrimerNombre]"
+                      name="PrimerNombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Apellidos]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Apellidos]"
+                      length="45"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Apellidos]"
+                      name="Apellidos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Direcccion1Cliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Direcccion1Cliente]"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Direcccion1Cliente]"
+                      name="Direcccion1Cliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Direccion2Cliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Direccion2Cliente]"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[Direccion2Cliente]"
+                      name="Direccion2Cliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[DistritoCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[DistritoCliente]"
+                      length="20"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[DistritoCliente]"
+                      name="DistritoCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CiudadCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[CiudadCliente]"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CiudadCliente]"
+                      name="CiudadCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[PaisCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[PaisCliente]"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[PaisCliente]"
+                      name="PaisCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CodigoPostalCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[CodigoPostalCliente]"
+                      length="10"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CodigoPostalCliente]"
+                      name="CodigoPostalCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[TelefonoCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[TelefonoCliente]"
+                      length="20"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[TelefonoCliente]"
+                      name="TelefonoCliente"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[customer_id]"
+                      dataType="i4"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Direccion1Tienda]"
+                      dataType="wstr"
+                      length="50"
+                      name="Direccion1Tienda" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Direccion2Tienda]"
+                      dataType="wstr"
+                      length="50"
+                      name="Direccion2Tienda" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[DistritoTienda]"
+                      dataType="wstr"
+                      length="20"
+                      name="DistritoTienda" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[CiudadTienda]"
+                      dataType="wstr"
+                      length="50"
+                      name="CiudadTienda" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[PaisTienda]"
+                      dataType="wstr"
+                      length="50"
+                      name="PaisTienda" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[CodigoPostalTienda]"
+                      dataType="wstr"
+                      length="10"
+                      name="CodigoPostalTienda" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[TelefonoTienda]"
+                      dataType="wstr"
+                      length="20"
+                      name="TelefonoTienda" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[PrimerNombre]"
+                      dataType="wstr"
+                      length="45"
+                      name="PrimerNombre" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Apellidos]"
+                      dataType="wstr"
+                      length="45"
+                      name="Apellidos" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Direcccion1Cliente]"
+                      dataType="wstr"
+                      length="50"
+                      name="Direcccion1Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[Direccion2Cliente]"
+                      dataType="wstr"
+                      length="50"
+                      name="Direccion2Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[DistritoCliente]"
+                      dataType="wstr"
+                      length="20"
+                      name="DistritoCliente" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[CiudadCliente]"
+                      dataType="wstr"
+                      length="50"
+                      name="CiudadCliente" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[PaisCliente]"
+                      dataType="wstr"
+                      length="50"
+                      name="PaisCliente" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[CodigoPostalCliente]"
+                      dataType="wstr"
+                      length="10"
+                      name="CodigoPostalCliente" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[TelefonoCliente]"
+                      dataType="wstr"
+                      length="20"
+                      name="TelefonoCliente" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[customer_id]"
+                      dataType="i4"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Direccion1Tienda]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Direccion1Tienda]"
+                      name="Direccion1Tienda" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Direccion2Tienda]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Direccion2Tienda]"
+                      name="Direccion2Tienda" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[DistritoTienda]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[DistritoTienda]"
+                      name="DistritoTienda" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[CiudadTienda]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[CiudadTienda]"
+                      name="CiudadTienda" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[PaisTienda]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[PaisTienda]"
+                      name="PaisTienda" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[CodigoPostalTienda]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[CodigoPostalTienda]"
+                      name="CodigoPostalTienda" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[TelefonoTienda]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[TelefonoTienda]"
+                      name="TelefonoTienda" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[PrimerNombre]"
+                      dataType="wstr"
+                      length="45"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[PrimerNombre]"
+                      name="PrimerNombre" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Apellidos]"
+                      dataType="wstr"
+                      length="45"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Apellidos]"
+                      name="Apellidos" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Direcccion1Cliente]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Direcccion1Cliente]"
+                      name="Direcccion1Cliente" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Direccion2Cliente]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[Direccion2Cliente]"
+                      name="Direccion2Cliente" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[DistritoCliente]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[DistritoCliente]"
+                      name="DistritoCliente" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[CiudadCliente]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[CiudadCliente]"
+                      name="CiudadCliente" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[PaisCliente]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[PaisCliente]"
+                      name="PaisCliente" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[CodigoPostalCliente]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[CodigoPostalCliente]"
+                      name="CodigoPostalCliente" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[TelefonoCliente]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[TelefonoCliente]"
+                      name="TelefonoCliente" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETLDimensiones\Origen de ADO NET 1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen de ADO NET 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+store.store_id
+,[address].[address] as Direccion1
+,[address].address2 as Direccion2
+,[address].district as Distrito
+,[address].postal_code as CodigoPostal
+,[address].phone as Telefono
+,city.city as Ciudad
+,country.country as Pais
+from store
+inner join [address]  
+on store.address_id = [address].address_id
+inner join 
+city  on
+city.city_id =  [address].city_id
+inner join 
+country on country.country_id = city.country_id
+;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETLDimensiones\Origen de ADO NET 1.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[clasedbii\DATAWAREHOUSE.sakila]"
+                  connectionManagerRefId="Package.ConnectionManagers[clasedbii\DATAWAREHOUSE.sakila]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[store_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[store_id]"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[store_id]"
+                      name="store_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Direccion1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[Direccion1]"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Direccion1]"
+                      name="Direccion1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Direccion2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[Direccion2]"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Direccion2]"
+                      name="Direccion2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Distrito]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[Distrito]"
+                      length="20"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Distrito]"
+                      name="Distrito"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[CodigoPostal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[CodigoPostal]"
+                      length="10"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[CodigoPostal]"
+                      name="CodigoPostal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Telefono]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[Telefono]"
+                      length="20"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Telefono]"
+                      name="Telefono"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Ciudad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[Ciudad]"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Ciudad]"
+                      name="Ciudad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Pais]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[Pais]"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Pais]"
+                      name="Pais"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[store_id]"
+                      dataType="i4"
+                      name="store_id" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[Direccion1]"
+                      dataType="wstr"
+                      length="50"
+                      name="Direccion1" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[Direccion2]"
+                      dataType="wstr"
+                      length="50"
+                      name="Direccion2" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[Distrito]"
+                      dataType="wstr"
+                      length="20"
+                      name="Distrito" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[CodigoPostal]"
+                      dataType="wstr"
+                      length="10"
+                      name="CodigoPostal" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[Telefono]"
+                      dataType="wstr"
+                      length="20"
+                      name="Telefono" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[Ciudad]"
+                      dataType="wstr"
+                      length="50"
+                      name="Ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[Pais]"
+                      dataType="wstr"
+                      length="50"
+                      name="Pais" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[store_id]"
+                      dataType="i4"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[store_id]"
+                      name="store_id" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[Direccion1]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[Direccion1]"
+                      name="Direccion1" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[Direccion2]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[Direccion2]"
+                      name="Direccion2" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[Distrito]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[Distrito]"
+                      name="Distrito" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[CodigoPostal]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[CodigoPostal]"
+                      name="CodigoPostal" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[Telefono]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[Telefono]"
+                      name="Telefono" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[Ciudad]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[Ciudad]"
+                      name="Ciudad" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[Pais]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[Pais]"
+                      name="Pais" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\ETLDimensiones\Sort"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -3607,6 +4800,16 @@
               name="Salida de origen de ADO NET"
               startId="Package\ETLDimensiones\Leer Pais.Outputs[Salida de origen de ADO NET]" />
             <path
+              refId="Package\ETLDimensiones.Paths[Salida de origen de ADO NET5]"
+              endId="Package\ETLDimensiones\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\ETLDimensiones\Origen de ADO NET.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\ETLDimensiones.Paths[Salida de origen de ADO NET6]"
+              endId="Package\ETLDimensiones\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\ETLDimensiones\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET]" />
+            <path
               refId="Package\ETLDimensiones.Paths[Sort Output]"
               endId="Package\ETLDimensiones\Merge Join.Inputs[Merge Join Right Input]"
               name="Sort Output"
@@ -3640,7 +4843,32 @@
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ETLHechos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{54AA97A0-A390-4AF0-A33F-B3E18F6A80B4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETLHechos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{238CBBFB-E405-4A2F-8997-F9E0502766B1}"
+      DTS:From="Package\ETLDimensiones"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\ETLHechos" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
 <!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
@@ -3652,11 +4880,49 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="156,42"
           Id="Package\ETLDimensiones"
           TopLeft="101,43" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\ETLHechos"
+          TopLeft="153,142" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="179,85">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.5,57"
+              Start="0,0"
+              End="39.5,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="4,28.5" />
+                  <mssgle:LineSegment
+                    End="35.5,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.5,28.5"
+                    Point2="39.5,28.5"
+                    Point3="39.5,32.5" />
+                  <mssgle:LineSegment
+                    End="39.5,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3664,7 +4930,7 @@
     design-time-name="Package\ETLDimensiones">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
         <NodeLayout
           Size="151,42"
           Id="Package\ETLDimensiones\Leer Tabla Film"
@@ -4200,9 +5466,9 @@
           Text="ETL Dimension Personal"
           ParentId="Package\ETLDimensiones"
           HeaderHeight="43"
-          IsExpanded="True"
+          IsExpanded="False"
           PanelSize="595,613"
-          Size="595,656"
+          Size="151,43"
           Id="34130ff6-b8de-4fe6-9002-e07d86a7295b"
           TopLeft="226.722222222222,53.2777777777778">
           <GroupLayout.ChildrenIds>
@@ -4235,17 +5501,111 @@
             <s:String>Package\ETLDimensiones.Paths[Merge Join Output2]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
+        <NodeLayout
+          Size="176,42"
+          Id="Package\ETLDimensiones\Destino de ADO NET"
+          TopLeft="5.5,124.5" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\ETLDimensiones\Origen de ADO NET"
+          TopLeft="13.5,5.5" />
+        <EdgeLayout
+          Id="Package\ETLDimensiones.Paths[Salida de origen de ADO NET5]"
+          TopLeft="96.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77"
+              Start="0,0"
+              End="0,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <GroupLayout
+          Text="ETL Dimension Clientes"
+          ParentId="Package\ETLDimensiones"
+          HeaderHeight="43"
+          IsExpanded="False"
+          PanelSize="190,222"
+          Size="190,43"
+          Id="39544e79-d344-44b0-a5c6-5829e2597455"
+          TopLeft="404.5,55.5">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\ETLDimensiones\Destino de ADO NET</s:String>
+            <s:String>Package\ETLDimensiones\Origen de ADO NET</s:String>
+            <s:String>Package\ETLDimensiones.Paths[Salida de origen de ADO NET5]</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <NodeLayout
+          Size="181,42"
+          Id="Package\ETLDimensiones\Origen de ADO NET 1"
+          TopLeft="20.5,5.5" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\ETLDimensiones\Destino de ADO NET 1"
+          TopLeft="5.5,95.5" />
+        <EdgeLayout
+          Id="Package\ETLDimensiones.Paths[Salida de origen de ADO NET6]"
+          TopLeft="111,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.5,48"
+              Start="0,0"
+              End="-12.5,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="-4,24" />
+                  <mssgle:LineSegment
+                    End="-8.5,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.5,24"
+                    Point2="-12.5,24"
+                    Point3="-12.5,28" />
+                  <mssgle:LineSegment
+                    End="-12.5,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <GroupLayout
+          Text="ETL Dimension Tienda"
+          ParentId="Package\ETLDimensiones"
+          HeaderHeight="43"
+          IsExpanded="False"
+          PanelSize="206,192"
+          Size="206,43"
+          Id="5327141a-f4c7-4b2d-8d2c-9f7dab754e12"
+          TopLeft="420.5,159.5">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\ETLDimensiones\Origen de ADO NET 1</s:String>
+            <s:String>Package\ETLDimensiones\Destino de ADO NET 1</s:String>
+            <s:String>Package\ETLDimensiones.Paths[Salida de origen de ADO NET6]</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETLDimensiones\Leer Staff">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\ETLDimensiones\Leer Tabla Film">
     <Properties>
@@ -4263,7 +5623,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\ETLDimensiones\Leer Direccion">
+    design-time-name="Package\ETLDimensiones\Leer Staff">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4272,6 +5632,14 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\ETLDimensiones\Leer Ciudad">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETLDimensiones\Leer Direccion">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4288,6 +5656,38 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\ETLDimensiones\Carga Dim Personal">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETLDimensiones\Origen de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETLDimensiones\Destino de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETLDimensiones\Origen de ADO NET 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETLDimensiones\Destino de ADO NET 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

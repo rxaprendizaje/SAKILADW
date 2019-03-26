@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{42931289-C12A-47A7-A76E-C81339D16C35}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{5617818D-30E0-4F24-8537-4E752A4B6FB7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4844,13 +4844,13 @@ country on country.country_id = city.country_id
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\ETLHechos"
+      DTS:refId="Package\ETLHechosRenta"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:DTSID="{54AA97A0-A390-4AF0-A33F-B3E18F6A80B4}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="ETLHechos"
+      DTS:ObjectName="ETLHechosRenta"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -4867,7 +4867,7 @@ country on country.country_id = city.country_id
       DTS:From="Package\ETLDimensiones"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
-      DTS:To="Package\ETLHechos" />
+      DTS:To="Package\ETLHechosRenta" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
@@ -4882,22 +4882,22 @@ country on country.country_id = city.country_id
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="156,42"
+          Size="238,42"
           Id="Package\ETLDimensiones"
           TopLeft="101,43" />
         <NodeLayout
-          Size="131,42"
-          Id="Package\ETLHechos"
+          Size="239,42"
+          Id="Package\ETLHechosRenta"
           TopLeft="153,142" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="179,85">
+          TopLeft="220,85">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="39.5,57"
+              EndConnector="52.5,57"
               Start="0,0"
-              End="39.5,49.5">
+              End="52.5,49.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -4908,13 +4908,13 @@ country on country.country_id = city.country_id
                     Point2="0,28.5"
                     Point3="4,28.5" />
                   <mssgle:LineSegment
-                    End="35.5,28.5" />
+                    End="48.5,28.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="35.5,28.5"
-                    Point2="39.5,28.5"
-                    Point3="39.5,32.5" />
+                    Point1="48.5,28.5"
+                    Point2="52.5,28.5"
+                    Point3="52.5,32.5" />
                   <mssgle:LineSegment
-                    End="39.5,49.5" />
+                    End="52.5,49.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4977,9 +4977,9 @@ country on country.country_id = city.country_id
           Text="ETL Dimension Tabla Film"
           ParentId="Package\ETLDimensiones"
           HeaderHeight="43"
-          IsExpanded="True"
+          IsExpanded="False"
           PanelSize="172,240"
-          Size="172,283"
+          Size="172,43"
           Id="d52707b9-79a1-4e91-9d09-fc54c9dc1af3"
           TopLeft="32.5,51.5">
           <GroupLayout.ChildrenIds>
@@ -5468,7 +5468,7 @@ country on country.country_id = city.country_id
           HeaderHeight="43"
           IsExpanded="False"
           PanelSize="595,613"
-          Size="151,43"
+          Size="160,43"
           Id="34130ff6-b8de-4fe6-9002-e07d86a7295b"
           TopLeft="226.722222222222,53.2777777777778">
           <GroupLayout.ChildrenIds>
@@ -5537,7 +5537,7 @@ country on country.country_id = city.country_id
           HeaderHeight="43"
           IsExpanded="False"
           PanelSize="190,222"
-          Size="190,43"
+          Size="156,43"
           Id="39544e79-d344-44b0-a5c6-5829e2597455"
           TopLeft="404.5,55.5">
           <GroupLayout.ChildrenIds>
@@ -5594,9 +5594,9 @@ country on country.country_id = city.country_id
           HeaderHeight="43"
           IsExpanded="False"
           PanelSize="206,192"
-          Size="206,43"
+          Size="150,43"
           Id="5327141a-f4c7-4b2d-8d2c-9f7dab754e12"
-          TopLeft="420.5,159.5">
+          TopLeft="614.5,56.5">
           <GroupLayout.ChildrenIds>
             <s:String>Package\ETLDimensiones\Origen de ADO NET 1</s:String>
             <s:String>Package\ETLDimensiones\Destino de ADO NET 1</s:String>
@@ -5623,7 +5623,39 @@ country on country.country_id = city.country_id
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\ETLDimensiones\Destino de ADO NET 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\ETLDimensiones\Leer Staff">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETLDimensiones\Origen de ADO NET 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETLDimensiones\Destino de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETLDimensiones\Origen de ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5656,38 +5688,6 @@ country on country.country_id = city.country_id
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\ETLDimensiones\Carga Dim Personal">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETLDimensiones\Origen de ADO NET">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETLDimensiones\Destino de ADO NET">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETLDimensiones\Origen de ADO NET 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETLDimensiones\Destino de ADO NET 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

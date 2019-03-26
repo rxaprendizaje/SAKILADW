@@ -61,4 +61,9 @@
   <ItemGroup>
     <Build Include="Esquema DW.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Script Llenado de Dim Fecha y Dim Tiempo.sql" />
+    <None Include="DimCliente.sql" />
+    <None Include="DimTienda.sql" />
+  </ItemGroup>
 </Project>

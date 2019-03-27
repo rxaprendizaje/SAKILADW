@@ -7,6 +7,8 @@ Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SAKILADW", "SAKILADW\SAKILA
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SAKILADW-Esquema", "SAKILADW-Esquema\SAKILADW-Esquema.sqlproj", "{8AEC8CB1-4B05-4450-B401-E5B1A14A095E}"
 EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SAKILADW_Hechos", "..\Integration Services Project1\Integration Services Project1\SAKILADW_Hechos.dtproj", "{0293DDF6-1C49-46AE-8839-BFE353251CF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,12 @@ Global
 		{8AEC8CB1-4B05-4450-B401-E5B1A14A095E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AEC8CB1-4B05-4450-B401-E5B1A14A095E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8AEC8CB1-4B05-4450-B401-E5B1A14A095E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0293DDF6-1C49-46AE-8839-BFE353251CF1}.Debug|Any CPU.ActiveCfg = Development
+		{0293DDF6-1C49-46AE-8839-BFE353251CF1}.Debug|Any CPU.Build.0 = Development
+		{0293DDF6-1C49-46AE-8839-BFE353251CF1}.Development|Any CPU.ActiveCfg = Development
+		{0293DDF6-1C49-46AE-8839-BFE353251CF1}.Development|Any CPU.Build.0 = Development
+		{0293DDF6-1C49-46AE-8839-BFE353251CF1}.Release|Any CPU.ActiveCfg = Development
+		{0293DDF6-1C49-46AE-8839-BFE353251CF1}.Release|Any CPU.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
